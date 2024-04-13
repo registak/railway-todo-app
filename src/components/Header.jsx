@@ -1,7 +1,7 @@
 import React from "react";
 import { useCookies } from "react-cookie";
-import { useSelector, useDispatch } from "react-redux/es/exports";
 import { useHistory } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 import  { signOut } from "../authSlice";
 import "./header.css";
 
