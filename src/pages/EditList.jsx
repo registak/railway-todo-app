@@ -2,7 +2,6 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useCookies } from "react-cookie";
 import { useNavigate, useParams } from "react-router-dom";
-import { Header } from "../components/Header";
 import { url } from "../const";
 import "./editList.css";
 
@@ -61,18 +60,15 @@ export const EditList = () => {
   }, [])
 
   return (
-    <div>
-      <Header />
-      <main className="edit-list">
-        <h2>リスト編集</h2>
-        <p className="error-message">{errorMessage}</p>
-        <form className="edit-list-form">
-          <label>タイトル</label><br />
-          <input type="text" className="edit-list-title" value={title} onChange={handleTitleChange} /><br />
-          <button type="button" className="delete-list-button" onClick={onDeleteList}>削除</button>
-          <button type="button" className="edit-list-button" onClick={onUpdateList}>更新</button>
-        </form>
-      </main>
-    </div>
+    <main className="edit-list">
+      <h2>リスト編集</h2>
+      <p className="error-message">{errorMessage}</p>
+      <form className="edit-list-form">
+        <label>タイトル</label><br />
+        <input type="text" className="edit-list-title" value={title} onChange={handleTitleChange} /><br />
+        <button type="button" className="delete-list-button" onClick={onDeleteList}>削除</button>
+        <button type="button" className="edit-list-button" onClick={onUpdateList}>更新</button>
+      </form>
+    </main>
   )
 }

@@ -9,6 +9,7 @@ import { NewList } from "../pages/NewList";
 import { EditTask } from "../pages/EditTask";
 import { SignUp } from "../pages/SignUp";
 import { EditList } from "../pages/EditList";
+import { ListLayout } from "../pages/layout/listLayout";
 
 export const Router = () => {
   const auth = useSelector((state) => state.auth.isSignIn)
@@ -23,8 +24,10 @@ export const Router = () => {
             <Route path="/" element={<Home />} />
             <Route path="/task/new" element={<NewTask />} />
             <Route path="/list/new" element={<NewList />} />
-            <Route path="/lists/:listId/tasks/:taskId" element={<EditTask />} />
-            <Route path="/lists/:listId/edit" element={<EditList />} />
+            <Route path="/lists/:listId" element={<ListLayout />}>
+              <Route path="tasks/:taskId" element={<EditTask />} />
+              <Route path="edit" element={<EditList />} />
+            </Route>
           </>
         ) : (
           <Route path="/" element={<Navigate to="/signin" replace />} />
