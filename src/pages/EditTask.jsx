@@ -67,7 +67,7 @@ export const EditTask = () => {
     .catch((err) => {
       setErrorMessage(`タスク情報の取得に失敗しました。${err}`);
     })
-  }, [])
+  }, [cookies.token, listId, taskId])
 
   return (
     <main className="edit-task">
